@@ -19,10 +19,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index()
+    public function index(CalismaAlanlariRepository $calismaalanlari): Response
     {
         return $this->render('fronted/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'calismaalanlari' => $calismaalanlari->findBy(['show_frontpage' => 1])
         ]);
     }
     
