@@ -25,6 +25,8 @@ class PagesType extends AbstractType
                 ]
             ])
             ->add('image', FileType::class, [
+                'label' => 'Resim Dosyası',
+                'required' => false, 
             ])
             ->add('publish')
         ;

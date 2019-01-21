@@ -7,9 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CalismaAlanlariType extends AbstractType
@@ -40,7 +38,7 @@ class CalismaAlanlariType extends AbstractType
             ])
             ->add('image', FileType::class, [
                 'label' => 'Resim Dosyası',
-                'required' => false,
+                'required' => false, 
             ])
             ->add('icon', null, [ 'label' => 'Yazı iconu', 'help' => 'Ön sayfaya taşıyacaksanız icon seçin!'])
             ->add('show_frontpage', ChoiceType::class, [

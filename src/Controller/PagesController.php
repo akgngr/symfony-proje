@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Controller;
 
 use App\Entity\Pages;
@@ -13,6 +13,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Filesystem\Filesystem;
+use Gedmo\Mapping\Annotation\Slug;
+use App\Service\FileUploader;
 
 /**
  * @Route("admin/pages")
@@ -32,21 +34,16 @@ class PagesController extends AbstractController
     /**
      * @Route("/new", name="pages_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $page = new Pages();
         $form = $this->createForm(PagesType::class, $page);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            /** @var UploadedFile $file */
             $file = $page->getImage();
-            
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-            dd($fileName);die;
-
+            $fileName = $fileUploader->upload($file);
+            $page->setImage($fileName);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($page);
             $entityManager->flush();

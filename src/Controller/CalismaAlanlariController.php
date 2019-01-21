@@ -20,17 +20,6 @@ use Gedmo\Mapping\Annotation\Slug;
  */
 class CalismaAlanlariController extends AbstractController
 {
-    /**
-     * Fields to be shown on lists
-     *
-     * @param ListMapper $listMapper
-     */
-    protected function configureListFields(ListMapper $listMapper)
-    {
-        $listMapper
-            ->addIdentifier('id')
-            ->addIdentifier('__toString');
-    }
 
     /**
      * @Route("/", name="calisma_alanlari_index", methods={"GET"})

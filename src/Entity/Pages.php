@@ -40,7 +40,8 @@ class Pages
     private $body;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
      * @Assert\File(mimeTypes={"image/jpeg", "image/pjpeg", "image/png", "image/gif"})
      */
     private $image;
@@ -96,16 +97,17 @@ class Pages
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage($image): ? self
     {
         $this->image = $image;
 
         return $this;
+        
     }
 
     public function getPublish(): ?bool
