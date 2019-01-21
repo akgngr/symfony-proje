@@ -1,0 +1,30 @@
+{% extends "backend/base.html.twig" %}
+
+{% block title %}Yeni Çalışma Alanı Ekle {% endblock %}
+{% block head %}Yeni Çalışma Alanı Ekle {% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+ 
+{% block body %}
+<a class="badge badge-primary float-right mb-3" href="{{ path('calisma_alanlari_index') }}">back to list</a>
+    {{ include('backend/calisma_alanlari/_form.html.twig') }}
+    <script src=" {{ asset('bundles/fosckeditor/ckeditor.js')}} "></script>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        ClassicEditor.create( document.querySelector( '.editor' ), {
+            language: 'tr',
+            options: {
+                height : '100px'
+            },
+        } );
+
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .ck-content {
+        height: 300px;
+    }
+    </style> 
+{% endblock  %}

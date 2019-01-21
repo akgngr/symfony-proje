@@ -1,0 +1,31 @@
+{% extends "backend/base.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Edit | {{ calisma_alanlari.title }} {% endblock %}
+{% block head %}Edit | {{ calisma_alanlari.title }} {% endblock %}
+{% block body %}
+{{ include('backend/calisma_alanlari/_delete_form.html.twig') }}
+
+<a class="btn btn-primary float-right mb-3 mr-3" href="{{ path('calisma_alanlari_index') }}">back to list</a>
+
+    {{ include('backend/calisma_alanlari/_form.html.twig', {'button_label': 'Update'}) }}
+    <script src=" {{ asset('bundles/fosckeditor/ckeditor.js')}} "></script>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        ClassicEditor.create( document.querySelector( '.editor' ), {
+            language: 'tr',
+            options: {
+                height : '100px'
+            },
+        } );
+
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .ck-content {
+        height: 300px;
+    }
+    </style>
+{% endblock  %}

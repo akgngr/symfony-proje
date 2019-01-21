@@ -1,0 +1,32 @@
+{% extends "backend/base.html.twig" %}
+{% block title %}Users{% endblock %}
+{% block head %}Users{% endblock %}
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td scope="row">{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    {% for rol in user.roles %}
+                        {{rol}}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    
+
+{% endblock %}

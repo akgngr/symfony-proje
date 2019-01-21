@@ -1,0 +1,39 @@
+<!-- Sidebar Content -->
+
+<div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="dashboard-ecommerce.html">Admin Panel</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="dashboard-ecommerce.html">Ap</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="dropdown active">
+              <a href="/admin" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="menu-header">General Settings</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Users Manager</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href=" {{ path('users')}} ">Users List</a></li>
+                <li><a class="nav-link" href="#">Add New User</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Menus</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Sayfalar</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href=" {{ path('pages_index')}} ">Sayfaları Görüntüle</a></li>
+                <li><a class="nav-link" href="{{ path('pages_new')}}">Yeni sayfa ekle</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Çalışma Alanları</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{ path('calisma_alanlari_index')}}">Görüntüle</a></li>
+                <li><a class="nav-link" href=" {{ path('calisma_alanlari_new')}} ">Yeni bir tane ekle</a></li>
+              </ul>
+            </li>
+        </aside>
+      </div>

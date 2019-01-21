@@ -1,0 +1,46 @@
+{% extends "backend/base.html.twig" %}
+{% block title %}Show | {{ calisma_alanlari.title }} {% endblock %}
+{% block head %}Show | {{ calisma_alanlari.title }} {% endblock %}
+
+{% block body %}
+<a class="btn btn-success float-right mb-3" href="{{ path('calisma_alanlari_index') }}">listeye geri dön</a>
+<a class="btn btn-primary" href="{{ path('calisma_alanlari_edit', {'slug': calisma_alanlari.slug}) }}">düzenle</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ calisma_alanlari.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>http://www.positivehukuk.com/<span style="color:red;"><b>{{ calisma_alanlari.slug }}</b></span></td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ calisma_alanlari.summary }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{% autoescape %} {{ calisma_alanlari.body |raw }} {% endautoescape %} </td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="img-fluid" alt="Responsive image" src="{{ asset('/uploads/images/') ~ calisma_alanlari.image }}" alt=""></td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ calisma_alanlari.icon }}</td>
+            </tr>
+            <tr>
+                <th>Anasayfaya Yükseltilmiş </th>
+                <td>{% if show_frontpage == 1 %}
+                        Evet
+                    {% else %}
+                        Hayır
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

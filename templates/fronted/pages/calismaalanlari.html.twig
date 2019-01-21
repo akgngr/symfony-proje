@@ -1,0 +1,47 @@
+{% extends "fronted/base.html.twig" %}
+
+{% block title %} Çalışma Alanları {% endblock %}
+
+{% block body %}
+    <section class="home-slider js-fullheight owl-carousel">
+        <div class="slider-item js-fullheight" style="background-image:url( {{ asset('assets/front/images/bg_5.jpg')}} );">
+            <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                <h1 class="mb-3 mt-5 bread">Çalışma Alanlarımız</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href=" {{ path('home_index')}} ">Anasayfa</a></span> <span>Çalışma Alanlarımız</span></p>
+            </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                {% for calismaalani in calismaalanlari %}
+                    <div class="col-md-4">
+                        <div class="practice">
+                            <a href=" {{ path('home_calisma_alanlari_show', {'slug': calismaalani.slug})}} " class="img" style="background-image: url( /uploads/images/{{ calismaalani.image }} );"></a>
+                            <div class="info">
+                                <h3><a href="{{ path('home_calisma_alanlari_show', {'slug': calismaalani.slug})}}">{% autoescape %} {{ calismaalani.title |raw }} {% endautoescape %}</a></h3>
+                                <p>{{ calismaalani.summary|slice(0, 250) }}...</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5 mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                        {{ knp_pagination_render(calismaalanlari) }}
+                </div>
+            </div>
+        </div>
+    
+</section>
+{% endblock %}

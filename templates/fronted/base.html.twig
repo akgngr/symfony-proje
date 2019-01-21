@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css')}}">
+
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+
+    {% include 'fronted/inc/nav.html.twig' %}
+    
+    {% block body %}{% endblock %}
+    
+{% include 'fronted/inc/footer.html.twig' %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

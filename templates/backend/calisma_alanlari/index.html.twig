@@ -1,0 +1,40 @@
+{% extends "backend/base.html.twig" %}
+{% block title %}Çalışma Alanları {% endblock %}
+{% block head %}Çalışma Alanları{% endblock %} 
+{% block body %}
+<a class="btn btn-primary float-right mb-3" href="{{ path('calisma_alanlari_new') }}">Yeni</a>
+<div class="table-responsive-sm">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calisma_alanlari in calisma_alanlaris %}
+            <tr>
+                <td>{{ calisma_alanlari.title }}</td>
+                <td>{{ calisma_alanlari.summary }}</td>
+                <td style="width:215px;">
+                    <a class="btn btn-primary float-left mr-1" href="{{ path('calisma_alanlari_show', {'slug': calisma_alanlari.slug}) }}">show</a>
+                    <a class="btn btn-success float-left mr-1" href="{{ path('calisma_alanlari_edit', {'slug': calisma_alanlari.slug}) }}">edit</a>
+                    <form method="post" action="{{ path('calisma_alanlari_delete', {'id': calisma_alanlari.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ calisma_alanlari.id) }}">
+                        <button class="btn btn-danger float-left  mr-1">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div> 
+
+
+{% endblock %}

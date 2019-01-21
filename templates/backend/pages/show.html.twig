@@ -1,0 +1,41 @@
+{% extends "backend/base.html.twig" %}
+{% block title %}Sabit Sayfalar | {{ page.title }} {% endblock %}
+{% block head %}Sabit Sayfalar | {{ page.title }} {% endblock %}
+{% block body %}
+<a class="btn btn-success float-right mb-3" href="{{ path('pages_index') }}">listeye geri dön</a>
+
+<a class="btn btn-success mb-3" href="{{ path('pages_edit', {'id': page.id}) }}">Düzenle</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ page.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ page.slug }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ page.summary }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ page.body }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ page.image ? page.image|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Publish</th>
+                <td>{{ page.publish ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

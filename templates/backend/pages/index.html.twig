@@ -1,0 +1,41 @@
+{% extends "backend/base.html.twig" %}
+{% block title %} Sabit Sayfalar {% endblock %}
+{% block head %} Sabit Sayfalar {% endblock %}
+{% block body %}
+
+<a class="btn btn-primary float-right mb-3" href="{{ path('pages_new') }}">Yeni Sayfa</a>
+<div class="table-responsive-sm">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Summary</th>
+                <th>Body</th>
+                <th>Image</th>
+                <th>Publish</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page in pages %}
+            <tr>
+                <td>{{ page.title }}</td>
+                <td>{{ page.slug }}</td>
+                <td>{{ page.summary }}</td>
+                <td>{{ page.body }}</td>
+                <td>{{ page.image ? page.image|join(', ') : '' }}</td>
+                <td>{{ page.publish ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('pages_show', {'id': page.id}) }}">show</a>
+                    <a href="{{ path('pages_edit', {'id': page.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
